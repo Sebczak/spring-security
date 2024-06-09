@@ -4,16 +4,22 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name = "contact_message")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Contact {
 
     @Id
-    @Column(name = "contact_id")
+    @Column(name = "id")
     private UUID contactId;
 
     @Column(name = "contact_name")
@@ -28,53 +34,4 @@ public class Contact {
 
     @Column(name = "create_dt")
     private Date createDt;
-
-    public UUID getContactId() {
-        return contactId;
-    }
-
-    public void setContactId(UUID contactId) {
-        this.contactId = contactId;
-    }
-
-    public String getContactName() {
-        return contactName;
-    }
-
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
-
-    public String getContactEmail() {
-        return contactEmail;
-    }
-
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public Date getCreateDt() {
-        return createDt;
-    }
-
-    public void setCreateDt(Date createDt) {
-        this.createDt = createDt;
-    }
-
 }

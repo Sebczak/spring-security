@@ -3,15 +3,21 @@ package com.company.spring_security.model;
 import java.sql.Date;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "notice_detail")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Notice {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "notice_id")
+    @Column(name = "id")
     private int noticeId;
 
     @Column(name = "notice_summary")
@@ -31,60 +37,4 @@ public class Notice {
 
     @Column(name = "update_dt")
     private Date updateDt;
-
-    public int getNoticeId() {
-        return noticeId;
-    }
-
-    public void setNoticeId(int noticeId) {
-        this.noticeId = noticeId;
-    }
-
-    public String getNoticeSummary() {
-        return noticeSummary;
-    }
-
-    public void setNoticeSummary(String noticeSummary) {
-        this.noticeSummary = noticeSummary;
-    }
-
-    public String getNoticeDetails() {
-        return noticeDetails;
-    }
-
-    public void setNoticeDetails(String noticeDetails) {
-        this.noticeDetails = noticeDetails;
-    }
-
-    public Date getNoticBegDt() {
-        return noticBegDt;
-    }
-
-    public void setNoticBegDt(Date noticBegDt) {
-        this.noticBegDt = noticBegDt;
-    }
-
-    public Date getNoticEndDt() {
-        return noticEndDt;
-    }
-
-    public void setNoticEndDt(Date noticEndDt) {
-        this.noticEndDt = noticEndDt;
-    }
-
-    public Date getCreateDt() {
-        return createDt;
-    }
-
-    public void setCreateDt(Date createDt) {
-        this.createDt = createDt;
-    }
-
-    public Date getUpdateDt() {
-        return updateDt;
-    }
-
-    public void setUpdateDt(Date updateDt) {
-        this.updateDt = updateDt;
-    }
 }

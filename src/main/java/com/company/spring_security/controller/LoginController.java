@@ -2,6 +2,7 @@ package com.company.spring_security.controller;
 
 import com.company.spring_security.model.Customer;
 import com.company.spring_security.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -15,15 +16,11 @@ import java.sql.Date;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class LoginController {
 
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
-
-    public LoginController(CustomerRepository customerRepository, PasswordEncoder passwordEncoder) {
-        this.customerRepository = customerRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody Customer customer) {

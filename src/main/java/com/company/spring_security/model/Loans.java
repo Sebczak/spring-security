@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="loans")
+@Table(name="loan")
 public class Loans {
 
     @Id

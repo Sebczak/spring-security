@@ -9,7 +9,7 @@ import java.sql.Date;
 import java.util.UUID;
 
 @Entity
-@Table(name = "contact_messages")
+@Table(name = "contact_message")
 public class Contact {
 
     @Id

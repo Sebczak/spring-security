@@ -6,12 +6,12 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "cards")
+@Table(name = "card")
 public class Cards {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "card_id")
+    @Column(name = "id")
     private int cardId;
 
     @Column(name = "customer_id")

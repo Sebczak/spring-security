@@ -41,11 +41,12 @@ public class ProjectSecurityConfig {
                         .ignoringRequestMatchers("/register", "/contact")
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
-                .authorizeHttpRequests(request -> request.requestMatchers(
-                                "/myAccount",
-                                "/myCards",
-                                "/myBalance",
-                                "/myLoans",
+                .authorizeHttpRequests(request -> request
+                        .requestMatchers("/myAccount").hasRole("USER")
+                        .requestMatchers("/myBalance").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/myLoans").hasRole("USER")
+                        .requestMatchers("/myCards").hasRole("USER")
+                        .requestMatchers(
                                 "/user"
                         ).authenticated()
                         .requestMatchers(

@@ -1,12 +1,11 @@
 package com.company.spring_security.model;
 
-import java.sql.Date;
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
+
+import java.sql.Date;
 
 @Entity
 @Table(name = "notice_detail")

@@ -3,6 +3,7 @@ package com.company.spring_security.config;
 import com.company.spring_security.model.Authority;
 import com.company.spring_security.model.Customer;
 import com.company.spring_security.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,15 +19,11 @@ import java.util.List;
 import java.util.Set;
 
 @Component
+@RequiredArgsConstructor
 public class CompanyUsernamePwdAuthenticationProvider implements AuthenticationProvider {
 
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
-
-    public CompanyUsernamePwdAuthenticationProvider(CustomerRepository customerRepository, PasswordEncoder passwordEncoder) {
-        this.customerRepository = customerRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -46,7 +43,6 @@ public class CompanyUsernamePwdAuthenticationProvider implements AuthenticationP
 
     private List<GrantedAuthority> getGrantedAuthorities(Set<Authority> authorities) {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        System.out.println("list" + grantedAuthorities);
         for (Authority authority : authorities) {
             grantedAuthorities.add(new SimpleGrantedAuthority(authority.getName()));
         }

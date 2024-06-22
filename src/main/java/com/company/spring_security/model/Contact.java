@@ -7,7 +7,6 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 import java.sql.Date;
-import java.util.UUID;
 
 @Entity
 @Table(name = "contact_message")
@@ -19,7 +18,7 @@ public class Contact {
 
     @Id
     @Column(name = "id")
-    private UUID contactId;
+    private String contactId;
 
     @Column(name = "contact_name")
     private String contactName;
